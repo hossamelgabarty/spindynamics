@@ -1,24 +1,3 @@
-/*
- * This file is part of my bachelor thesis.
- *
- * Copyright 2011 Milian Wolff <mail@milianw.de>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Library General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public
- * License along with this program; if not, write to the
- * Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- */
-
 #include "spinhamiltonian.h"
 
 #include <iostream>
@@ -41,6 +20,7 @@ SpinHamiltonian::SpinHamiltonian(const fp B, const Experiment& experiment)
 , m_exp(experiment)
 , m_spins(m_exp.spinSystem())
 , m_staticBField(m_exp.staticBField(B))
+, Temperature(20.0)
 {
 }
 
@@ -272,7 +252,8 @@ fp SpinHamiltonian::calculateIntensity() const
   SelfAdjointEigenSolver<MatrixXc> eigenSolver(hamiltonian());
   const VectorX& eigenValues = eigenSolver.eigenvalues();
   const MatrixXc& eigenVectors = eigenSolver.eigenvectors();
-
+  const double partition_function=calculatePartitionFunction(eigenValues);
+  cout << "HOSSAM: " << partition_function << endl;
   ///NOTE: intensityMatrix has even higher peak mem consumption due to
   ///      matrix product allocations and temporary
   const MatrixXc moments = magneticMoments();
@@ -282,7 +263,7 @@ fp SpinHamiltonian::calculateIntensity() const
   if (thresholdStr) {
     threshold = atof(thresholdStr);
   }
-
+  
   fp intensity = 0;
   ///TODO: take direction of B0 and B1 into account, integrate over plane
   for (int i = 0;i < m_exp.dimension; ++i) {
@@ -295,9 +276,8 @@ fp SpinHamiltonian::calculateIntensity() const
         continue;
       }
       /// < Psi_j | and abs squared: |< Psi_j | M | Psi_i >|^2 M | Psi_i >
-      intensity += (eigenVectors.col(j).adjoint() * moments * eigenVectors.col(i)).squaredNorm();
-      //NOTE: eq 3-24, p 52 says: |< j|M|i > dot H_1|^2
-      //H_1 is probably just a constant term which we ignore for now as we normalize the intensity anyways
+      intensity += (eigenVectors.col(j).adjoint() * moments * eigenVectors.col(i)).squaredNorm()
+      * abs(exp(-1 * eigenValues[i]/BOLTZMANN/Temperature) - exp(-1*eigenValues[j]/BOLTZMANN/Temperature))/partition_function; //H Elgabarty
     }
   }
   return intensity; // ignore constant term: * 2.0 * M_PI * (Bohrm / hbar) * (Bohrm / hbar)
@@ -310,7 +290,16 @@ void SpinHamiltonian::calculateTransitions() const
   const VectorX eigenValues = eigenSolver.eigenvalues();
   const MatrixXc eigenVectors = eigenSolver.eigenvectors();
   MatrixX probabilities = intensityMatrix(eigenVectors);
-  probabilities /= probabilities.maxCoeff();
+  //Boltzmann factor ---- H Elgabarty
+  const double partition_function=calculatePartitionFunction(eigenValues);
+  for (int i = 0; i < eigenVectors.size(); i++)
+  {
+    for (int j = 0; j < eigenVectors.size(); j++)
+    {
+      probabilities(i,j) *= abs(exp(-1 * eigenValues[i]/BOLTZMANN/Temperature) - exp(-1*eigenValues[j]/BOLTZMANN/Temperature))/partition_function;
+    }
+  }
+  probabilities /= probabilities.maxCoeff(); //Never use this function for powder-averaging!!!
 
   float threshold = 1.0E-6;
   if (const char* thresholdStr = getenv("PROBABILITY_THRESHOLD")) {
@@ -353,4 +342,15 @@ VectorX SpinHamiltonian::calculateEigenValues() const
   //Diagonalize the total Hamiltonian matrix===================================
   SelfAdjointEigenSolver<MatrixXc> eigenSolver(hamiltonian(), EigenvaluesOnly);
   return eigenSolver.eigenvalues();
+}
+
+
+double SpinHamiltonian::calculatePartitionFunction(const VectorX& eigenvalues) const
+{
+  fp partition_function =0;
+  for (int i = 0; i < eigenvalues.size(); i++)
+  {
+    partition_function += exp(-1 * eigenvalues[i] / BOLTZMANN / Temperature);
+  }
+  return abs(partition_function);
 }

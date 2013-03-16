@@ -1,24 +1,3 @@
-/*
- * This file is part of my bachelor thesis.
- *
- * Copyright 2011 Milian Wolff <mail@milianw.de>
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU Library General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public
- * License along with this program; if not, write to the
- * Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
- */
-
 #ifndef MW_BACHELOR_SPINHAMILTONIAN_H
 #define MW_BACHELOR_SPINHAMILTONIAN_H
 
@@ -32,11 +11,6 @@ class Experiment;
  *
  * NOTE: size of MatrixXc is (sizeof(complex< fp >) bytes * (2^(nProtons + 1)*3^(nNitrogens))^2)
  *                            ^ == 8 for float, 16 for double
- *
- * NOTE: if you have a dot product between two (spin-)operators, it is *not* the same as
- *       the dot product between two (complex) vectors!
- *       complex vectors: a . b = a.adjoint() * b
- *       spin operators: a . b = a.transpose() * b
  */
 class SpinHamiltonian {
   public:

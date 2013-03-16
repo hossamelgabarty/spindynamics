@@ -35,6 +35,7 @@ namespace Constants {
 const fp hbar = GSL_CONST_MKSA_PLANCKS_CONSTANT_HBAR;
 const fp h = GSL_CONST_MKSA_PLANCKS_CONSTANT_H;
 const fp NUC_MAGNETON = GSL_CONST_MKSA_NUCLEAR_MAGNETON; // (J/T)
+const fp BOLTZMANN = GSL_CONST_MKSA_BOLTZMANN;
 const fp g_1H = 5.585694701 ;            // proton g factor
 const fp g_14N = 0.403761;               // N14 g factor
 const fp g_E = 2.0023193043622;          // electron g factor
