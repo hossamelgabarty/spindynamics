@@ -92,10 +92,13 @@ class SpinHamiltonian {
     /// M being the magnetic moment matrix
     MatrixX intensityMatrix(const MatrixXc& eigenVectors) const;
 
+    const fp calculatePartitionFunction(const VectorX& eigenvalues) const;
+    
     const fp m_B;
     const Experiment& m_exp;
     const Spins m_spins;
     const Vector3c m_staticBField;
+    const fp Temperature;
 };
 
 #endif // MW_BACHELOR_SPINHAMILTONIAN_H
