@@ -253,7 +253,6 @@ fp SpinHamiltonian::calculateIntensity() const
   const VectorX& eigenValues = eigenSolver.eigenvalues();
   const MatrixXc& eigenVectors = eigenSolver.eigenvectors();
   const double partition_function=calculatePartitionFunction(eigenValues);
-  cout << "HOSSAM: " << partition_function << endl;
   ///NOTE: intensityMatrix has even higher peak mem consumption due to
   ///      matrix product allocations and temporary
   const MatrixXc moments = magneticMoments();
