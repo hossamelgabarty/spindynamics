@@ -344,7 +344,7 @@ VectorX SpinHamiltonian::calculateEigenValues() const
 }
 
 
-double SpinHamiltonian::calculatePartitionFunction(const VectorX& eigenvalues) const
+const fp SpinHamiltonian::calculatePartitionFunction(const VectorX& eigenvalues) const
 {
   fp partition_function =0;
   for (int i = 0; i < eigenvalues.size(); i++)
