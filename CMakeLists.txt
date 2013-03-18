@@ -26,7 +26,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 include_directories(${Boost_INCLUDE_DIRS} /usr/include/openmpi)
 
-set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS "-Wall -O2")
 
 add_subdirectory(spinlib)
 add_subdirectory(mpi)
