@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(MilianWolffBachelor)
+project(spindynamics)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "RelWithDebInfo")
@@ -39,3 +39,5 @@ add_subdirectory(lebedev)
 # add_executable(test test.cpp)
 # OptimizeForArchitecture(test)
 # target_link_libraries(test hslib ${Boost_LIBRARIES})
+
+add_subdirectory(apodization)
