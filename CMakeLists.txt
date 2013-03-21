@@ -40,3 +40,5 @@ add_subdirectory(smoothing)
 # add_executable(test test.cpp)
 # OptimizeForArchitecture(test)
 # target_link_libraries(test hslib ${Boost_LIBRARIES})
+
+add_subdirectory(apodization)
