@@ -290,19 +290,6 @@ lebedev/fast:
 	$(MAKE) -f lebedev/CMakeFiles/lebedev.dir/build.make lebedev/CMakeFiles/lebedev.dir/build
 .PHONY : lebedev/fast
 
-#=============================================================================
-# Target rules for targets named smoothing
-
-# Build rule for target.
-smoothing: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 smoothing
-.PHONY : smoothing
-
-# fast build rule for target.
-smoothing/fast:
-	$(MAKE) -f smoothing/CMakeFiles/smoothing.dir/build.make smoothing/CMakeFiles/smoothing.dir/build
-.PHONY : smoothing/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -326,7 +313,6 @@ help:
 	@echo "... resfield"
 	@echo "... powder"
 	@echo "... lebedev"
-	@echo "... smoothing"
 .PHONY : help
 
 

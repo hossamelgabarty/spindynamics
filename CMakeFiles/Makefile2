@@ -696,56 +696,6 @@ clean: lebedev/CMakeFiles/lebedev.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory smoothing
-
-# Convenience name for "all" pass in the directory.
-smoothing/all: smoothing/CMakeFiles/smoothing.dir/all
-.PHONY : smoothing/all
-
-# Convenience name for "clean" pass in the directory.
-smoothing/clean: smoothing/CMakeFiles/smoothing.dir/clean
-.PHONY : smoothing/clean
-
-# Convenience name for "preinstall" pass in the directory.
-smoothing/preinstall:
-.PHONY : smoothing/preinstall
-
-#=============================================================================
-# Target rules for target smoothing/CMakeFiles/smoothing.dir
-
-# All Build rule for target.
-smoothing/CMakeFiles/smoothing.dir/all:
-	$(MAKE) -f smoothing/CMakeFiles/smoothing.dir/build.make smoothing/CMakeFiles/smoothing.dir/depend
-	$(MAKE) -f smoothing/CMakeFiles/smoothing.dir/build.make smoothing/CMakeFiles/smoothing.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/elgabart/cloned/spindynamics/CMakeFiles  24 25
-	@echo "Built target smoothing"
-.PHONY : smoothing/CMakeFiles/smoothing.dir/all
-
-# Include target in all.
-all: smoothing/CMakeFiles/smoothing.dir/all
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-smoothing/CMakeFiles/smoothing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/elgabart/cloned/spindynamics/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 smoothing/CMakeFiles/smoothing.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/elgabart/cloned/spindynamics/CMakeFiles 0
-.PHONY : smoothing/CMakeFiles/smoothing.dir/rule
-
-# Convenience name for target.
-smoothing: smoothing/CMakeFiles/smoothing.dir/rule
-.PHONY : smoothing
-
-# clean rule for target.
-smoothing/CMakeFiles/smoothing.dir/clean:
-	$(MAKE) -f smoothing/CMakeFiles/smoothing.dir/build.make smoothing/CMakeFiles/smoothing.dir/clean
-.PHONY : smoothing/CMakeFiles/smoothing.dir/clean
-
-# clean rule for target.
-clean: smoothing/CMakeFiles/smoothing.dir/clean
-.PHONY : clean
-
-#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

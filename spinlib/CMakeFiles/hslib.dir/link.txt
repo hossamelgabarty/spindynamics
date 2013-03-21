@@ -1,2 +1,0 @@
-/usr/bin/ar cr libhslib.a  CMakeFiles/hslib.dir/spinhamiltonian.cpp.o CMakeFiles/hslib.dir/resonancefield.cpp.o CMakeFiles/hslib.dir/orcaparser.cpp.o CMakeFiles/hslib.dir/experiment.cpp.o CMakeFiles/hslib.dir/helpers.cpp.o
-/usr/bin/ranlib libhslib.a

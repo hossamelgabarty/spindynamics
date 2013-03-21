@@ -41,7 +41,6 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   INCLUDE("/home/elgabart/cloned/spindynamics/dbg/cmake_install.cmake")
   INCLUDE("/home/elgabart/cloned/spindynamics/powder/cmake_install.cmake")
   INCLUDE("/home/elgabart/cloned/spindynamics/lebedev/cmake_install.cmake")
-  INCLUDE("/home/elgabart/cloned/spindynamics/smoothing/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

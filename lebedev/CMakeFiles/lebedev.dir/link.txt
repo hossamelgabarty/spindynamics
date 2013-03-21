@@ -1,1 +1,0 @@
-/usr/bin/gcc   -march=core2 -msse2 -msse3 -mssse3 -mno-sse4.1 -mno-sse4.2 -mno-sse4a -mno-avx -O2 -g   CMakeFiles/lebedev.dir/lebedev.c.o  -o lebedev -rdynamic -lm 

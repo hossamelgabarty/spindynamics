@@ -36,10 +36,9 @@ add_subdirectory(convolute)
 add_subdirectory(dbg)
 add_subdirectory(powder)
 add_subdirectory(lebedev)
-add_subdirectory(smoothing)
+#add_subdirectory(smoothing)
 
 # add_executable(test test.cpp)
 # OptimizeForArchitecture(test)
 # target_link_libraries(test hslib ${Boost_LIBRARIES})
 
-add_subdirectory(apodization)

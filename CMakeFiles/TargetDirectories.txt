@@ -13,4 +13,3 @@
 /home/elgabart/cloned/spindynamics/dbg/CMakeFiles/orca2orca.dir
 /home/elgabart/cloned/spindynamics/powder/CMakeFiles/powder.dir
 /home/elgabart/cloned/spindynamics/dbg/CMakeFiles/resfield.dir
-/home/elgabart/cloned/spindynamics/smoothing/CMakeFiles/smoothing.dir
