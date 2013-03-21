@@ -12,6 +12,7 @@ include(OptimizeForArchitecture)
 
 find_package(GSL REQUIRED)
 find_package(FFTW REQUIRED)
+find_package(MPI REQUIRED)
 
 find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
@@ -24,7 +25,7 @@ find_package(Boost 1.42.0 COMPONENTS mpi serialization program_options regex sys
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
-include_directories(${Boost_INCLUDE_DIRS} /usr/include/openmpi)
+include_directories(${Boost_INCLUDE_DIRS} ${MPI_INCLUDE_PATH})
 
 set(CMAKE_CXX_FLAGS "-Wall -O2 -DEIGEN_FFTW_DEFAULT")
 

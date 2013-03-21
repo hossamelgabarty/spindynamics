@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/elgabart/cloned/spindynamics/powder/powder.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+fftw3.h
+-
+math.h
+-
+unistd.h
+-
+getopt.h
+-
+dirent.h
+-
+
