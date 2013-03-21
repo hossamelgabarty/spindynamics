@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(MilianWolffBachelor)
+project(spindynamics)
 
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE "RelWithDebInfo")
@@ -26,7 +26,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 include_directories(${Boost_INCLUDE_DIRS} /usr/include/openmpi)
 
-set(CMAKE_CXX_FLAGS "-Wall -O2 -DEIGEN_NO_DEBUG")
+set(CMAKE_CXX_FLAGS "-Wall -O2 -DEIGEN_FFTW_DEFAULT")
 
 add_subdirectory(spinlib)
 add_subdirectory(mpi)
@@ -35,6 +35,7 @@ add_subdirectory(convolute)
 add_subdirectory(dbg)
 add_subdirectory(powder)
 add_subdirectory(lebedev)
+add_subdirectory(smoothing)
 
 # add_executable(test test.cpp)
 # OptimizeForArchitecture(test)
