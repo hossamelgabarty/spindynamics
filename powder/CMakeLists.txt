@@ -1,3 +1,3 @@
-add_executable(smoothing main.cpp powder.cpp)
-OptimizeForArchitecture(smoothing)
-target_link_libraries(smoothing ${Boost_LIBRARIES} ${FFTW_LIBRARIES})
+add_executable(powder main.cpp powder.cpp)
+OptimizeForArchitecture(powder)
+target_link_libraries(powder ${Boost_LIBRARIES} ${FFTW_LIBRARIES})
