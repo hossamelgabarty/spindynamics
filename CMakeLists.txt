@@ -29,6 +29,8 @@ include_directories(${Boost_INCLUDE_DIRS} ${MPI_INCLUDE_PATH})
 
 set(CMAKE_CXX_FLAGS "-Wall -O2 -DEIGEN_FFTW_DEFAULT")
 
+set (CMAKE_INSTALL_PREFIX /home/elgabart/bin)
+
 add_subdirectory(spinlib)
 add_subdirectory(mpi)
 add_subdirectory(non-mpi)
@@ -36,6 +38,8 @@ add_subdirectory(convolute)
 add_subdirectory(dbg)
 add_subdirectory(lebedev)
 add_subdirectory(powder)
+
+
 
 # add_executable(test test.cpp)
 # OptimizeForArchitecture(test)
