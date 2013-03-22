@@ -43,10 +43,11 @@ namespace fs = boost::filesystem;
 namespace pt = boost::posix_time;
 
 MPIMaster::MPIMaster(const mpi::communicator& comm, const Experiment& exp,
-                     const string& outputDir)
+                     const string& outputDir, const string& orca)
 : m_comm(comm)
 , m_exp(exp)
 , m_outputDir(outputDir)
+, input_filename(orca)
 , m_lastJobId(0)
 {
   if (comm.rank() != MASTER_RANK) {
@@ -114,7 +115,7 @@ void MPIMaster::calculateIntensity(const fp from, const fp to, const int steps, 
     cout << timeStamp() << "continuing with " << m_jobQueue.size() << " jobs from last run" << endl;
   }
 
-  m_intensityOutputFile = m_outputDir + "/intensity.data";
+  m_intensityOutputFile = m_outputDir + input_filename + "_spectrum.at";
   // truncate data file if we start from scratch
   m_intensityOutput.open(m_intensityOutputFile.data(), ios_base::out | (continuingJobs ? ios_base::app : ios_base::trunc));
   if (!m_intensityOutput.is_open()) {

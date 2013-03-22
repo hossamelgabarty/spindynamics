@@ -37,7 +37,7 @@ class MPIJob;
 class MPIMaster {
 public:
   MPIMaster(const mpi::communicator& comm, const Experiment& exp,
-            const std::string& outputDir);
+            const std::string& outputDir, const std::string& input_filename);
   ~MPIMaster();
 
   void calculateIntensity(const fp from, const fp to, const int steps, const std::vector<Orientation>& orientations);
@@ -62,6 +62,7 @@ private:
   std::vector<int> m_slaves;
   std::vector<int> m_availableSlaves;
   const std::string& m_outputDir;
+  const std::string& input_filename;
 
   std::vector<MPIJob *> m_jobQueue;
   unsigned int m_lastJobId;

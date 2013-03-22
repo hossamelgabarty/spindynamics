@@ -147,7 +147,7 @@ int main(int argc, char* argv[]) {
       return 3;
     }
 
-    MPIMaster master(world, exp, outputDir);
+    MPIMaster master(world, exp, outputDir, vm["system"].as<string>());
     master.calculateIntensity(from, to, steps, orientations);
   } else {
     MPISlave slave(world, exp);
