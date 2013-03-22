@@ -265,19 +265,6 @@ resfield/fast:
 .PHONY : resfield/fast
 
 #=============================================================================
-# Target rules for targets named powder
-
-# Build rule for target.
-powder: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 powder
-.PHONY : powder
-
-# fast build rule for target.
-powder/fast:
-	$(MAKE) -f powder/CMakeFiles/powder.dir/build.make powder/CMakeFiles/powder.dir/build
-.PHONY : powder/fast
-
-#=============================================================================
 # Target rules for targets named lebedev
 
 # Build rule for target.
@@ -289,6 +276,19 @@ lebedev: cmake_check_build_system
 lebedev/fast:
 	$(MAKE) -f lebedev/CMakeFiles/lebedev.dir/build.make lebedev/CMakeFiles/lebedev.dir/build
 .PHONY : lebedev/fast
+
+#=============================================================================
+# Target rules for targets named smoothing
+
+# Build rule for target.
+smoothing: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 smoothing
+.PHONY : smoothing
+
+# fast build rule for target.
+smoothing/fast:
+	$(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/build
+.PHONY : smoothing/fast
 
 # Help Target
 help:
@@ -311,8 +311,8 @@ help:
 	@echo "... orca2easy"
 	@echo "... orca2orca"
 	@echo "... resfield"
-	@echo "... powder"
 	@echo "... lebedev"
+	@echo "... smoothing"
 .PHONY : help
 
 

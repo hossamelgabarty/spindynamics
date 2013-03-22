@@ -96,42 +96,66 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-powder/CMakeFiles/powder.dir/rule:
-	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f CMakeFiles/Makefile2 powder/CMakeFiles/powder.dir/rule
-.PHONY : powder/CMakeFiles/powder.dir/rule
+powder/CMakeFiles/smoothing.dir/rule:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f CMakeFiles/Makefile2 powder/CMakeFiles/smoothing.dir/rule
+.PHONY : powder/CMakeFiles/smoothing.dir/rule
 
 # Convenience name for target.
-powder: powder/CMakeFiles/powder.dir/rule
-.PHONY : powder
+smoothing: powder/CMakeFiles/smoothing.dir/rule
+.PHONY : smoothing
 
 # fast build rule for target.
-powder/fast:
-	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/powder.dir/build.make powder/CMakeFiles/powder.dir/build
-.PHONY : powder/fast
+smoothing/fast:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/build
+.PHONY : smoothing/fast
 
-powder.o: powder.c.o
+main.o: main.cpp.o
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/main.cpp.s
+.PHONY : main.cpp.s
+
+powder.o: powder.cpp.o
 .PHONY : powder.o
 
 # target to build an object file
-powder.c.o:
-	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/powder.dir/build.make powder/CMakeFiles/powder.dir/powder.c.o
-.PHONY : powder.c.o
+powder.cpp.o:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/powder.cpp.o
+.PHONY : powder.cpp.o
 
-powder.i: powder.c.i
+powder.i: powder.cpp.i
 .PHONY : powder.i
 
 # target to preprocess a source file
-powder.c.i:
-	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/powder.dir/build.make powder/CMakeFiles/powder.dir/powder.c.i
-.PHONY : powder.c.i
+powder.cpp.i:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/powder.cpp.i
+.PHONY : powder.cpp.i
 
-powder.s: powder.c.s
+powder.s: powder.cpp.s
 .PHONY : powder.s
 
 # target to generate assembly for a file
-powder.c.s:
-	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/powder.dir/build.make powder/CMakeFiles/powder.dir/powder.c.s
-.PHONY : powder.c.s
+powder.cpp.s:
+	cd /home/elgabart/cloned/spindynamics && $(MAKE) -f powder/CMakeFiles/smoothing.dir/build.make powder/CMakeFiles/smoothing.dir/powder.cpp.s
+.PHONY : powder.cpp.s
 
 # Help Target
 help:
@@ -140,8 +164,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... powder"
 	@echo "... rebuild_cache"
+	@echo "... smoothing"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... powder.o"
 	@echo "... powder.i"
 	@echo "... powder.s"
