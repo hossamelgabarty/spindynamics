@@ -115,7 +115,9 @@ void MPIMaster::calculateIntensity(const fp from, const fp to, const int steps, 
     cout << timeStamp() << "continuing with " << m_jobQueue.size() << " jobs from last run" << endl;
   }
 
-  m_intensityOutputFile = m_outputDir + "/" + input_filename + "_spectrum.dat";
+  unsigned found = input_filename.find_last_of("/");
+  string filename = input_filename.substr(found+1);
+  m_intensityOutputFile = m_outputDir + "/" + filename + "_spectrum.dat";
   // truncate data file if we start from scratch
   m_intensityOutput.open(m_intensityOutputFile.data(), ios_base::out | (continuingJobs ? ios_base::app : ios_base::trunc));
   if (!m_intensityOutput.is_open()) {
